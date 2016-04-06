@@ -18,6 +18,7 @@
     "php": ">=5.6.0",
     "illuminate/support" : "5.1.x",
     "andersonef/gh-base-component" : "1.0.x",
+
     "andersonef/api-clientlayer": "^1.2",
     "illuminate/routing": "5.1.x",
     "yajra/laravel-datatables-oracle": "~5.0",
