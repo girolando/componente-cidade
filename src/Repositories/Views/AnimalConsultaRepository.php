@@ -1,5 +1,5 @@
 <?php
-namespace Andersonef\Componentes\Repositories\Views;
+namespace Andersonef\Componentes\Animal\Repositories\Views;
 
 use Andersonef\Repositories\Abstracts\RepositoryAbstract;
 
@@ -14,7 +14,7 @@ class AnimalConsultaRepository extends RepositoryAbstract{
 
     public function entity()
     {
-        return \Andersonef\Componentes\Entities\Views\AnimalConsulta::class;
+        return \Andersonef\Componentes\Animal\Entities\Views\AnimalConsulta::class;
     }
 
 }

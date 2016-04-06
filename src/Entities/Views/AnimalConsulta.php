@@ -1,5 +1,5 @@
 <?php
-namespace Andersonef\Componentes\Entities\Views;
+namespace Andersonef\Componentes\Animal\Entities\Views;
 
 use Illuminate\Database\Eloquent\Model;
 

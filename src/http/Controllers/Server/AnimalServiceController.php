@@ -1,7 +1,6 @@
 <?php
-namespace Andersonef\Componentes\Controllers\Server;
+namespace Andersonef\Componentes\Animal\Controllers\Server;
 
-use Andersonef\Componentes\Services\Server\Componentes\AnimalService;
 use Illuminate\Http\Request;
 
 class AnimalServiceController extends Controller

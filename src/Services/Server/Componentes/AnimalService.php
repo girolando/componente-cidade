@@ -5,10 +5,10 @@
  * Date: 30/03/2016
  * Time: 16:36
  */
-namespace Andersonef\Componentes\Services\Server\Componentes;
+namespace Andersonef\Componentes\Animal\Services\Server\Componentes;
 
 
-use Andersonef\Componentes\Extensions\DataTableQuery;
+use Andersonef\Componentes\Animal\Extensions\DataTableQuery;
 use Andersonef\Repositories\Abstracts\ServiceAbstract;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;

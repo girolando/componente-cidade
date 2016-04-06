@@ -5,7 +5,7 @@
  * Date: 23/02/2016
  * Time: 15:11
  */
-namespace Andersonef\Componentes\Extensions;
+namespace Andersonef\Componentes\Animal\Extensions;
 
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Database\Query\Builder as QueryBuilder;
