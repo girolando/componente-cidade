@@ -9,8 +9,8 @@ namespace Andersonef\Componentes\Services;
 
 
 use Andersonef\BaseComponent\Services\Componentes\BaseComponentService;
+use Andersonef\Componentes\Repositories\Views\AnimalConsultaRepository;
 use Illuminate\Database\DatabaseManager;
-use InetServer\Repositories\Views\AnimalConsultaRepository;
 
 class AnimalService extends BaseComponentService
 {
