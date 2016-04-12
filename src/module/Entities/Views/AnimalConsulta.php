@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class AnimalConsulta
- * @package Andersonef\Componentes\Entities\Views
+ * @package Girolando\Componentes\Entities\Views
  */
 class AnimalConsulta extends Model
 {
