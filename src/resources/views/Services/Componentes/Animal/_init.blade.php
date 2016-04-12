@@ -15,7 +15,7 @@
              * Esse é o método principal do componente. Ele é disparado quando a pessoa clicar no Search Button e não for impedida por algum evento.
              */
             this.onSearchButtonClick = function(){
-                System.beginLoading($("body"), '{!! trans('ComponenteAnimal::Geral/Componentes/AnimalService._init.msgBuscando') !!}');
+                System.beginLoading($("body"), '{!! trans('ComponenteAnimal::Services/Componentes/AnimalService._init.msgBuscando') !!}');
                 $.get('/vendor-girolando/componentes/animal', this.getAttributes(), function(response){
                     System.stopLoading();
                     self.modalInstance = Alert.bigConfirm(response, function(ok){
@@ -30,7 +30,7 @@
                             self.triggerEvent(Componente.EVENTS.ON_FINISH, self.selectedItems.values());
                             return;
                         }
-                    }, '{!! trans('ComponenteAnimal::Geral/Componentes/AnimalService._init.titModal') !!}');
+                    }, '{!! trans('ComponenteAnimal::Services/Componentes/AnimalService._init.titModal') !!}');
 
 
                     if(!self.getAttributes().multiple){
@@ -39,7 +39,7 @@
 
                 }).fail(function(){
                     System.stopLoading();
-                    Alert.error('{!! trans('ComponenteAnimal::Geral/Componentes/AnimalService._init.errOpenModal') !!}');
+                    Alert.error('{!! trans('ComponenteAnimal::Services/Componentes/AnimalService._init.errOpenModal') !!}');
                 });
             }
 

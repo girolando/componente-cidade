@@ -36,6 +36,6 @@ class AnimalServiceController extends Controller
             }
             dd($response);
         }
-        return view('Services.Componentes.Animal.AnimalServiceController.index', $request->all());
+        return view('ComponenteAnimal::Services.Componentes.Animal.AnimalServiceController.index', $request->all());
     }
 }

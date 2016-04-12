@@ -10,7 +10,7 @@ namespace Girolando\Componentes\Animal\Services\Server;
 
 use Girolando\Componentes\Animal\Extensions\DataTableQuery;
 use Girolando\Componentes\Animal\Repositories\Views\AnimalConsultaRepository;
-use Girolando\Repositories\Abstracts\ServiceAbstract;
+use Andersonef\Repositories\Abstracts\ServiceAbstract;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Http\Request;
 use yajra\Datatables\Datatables;

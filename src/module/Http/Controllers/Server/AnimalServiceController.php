@@ -3,6 +3,7 @@ namespace Girolando\Componentes\Animal\Controllers\Server;
 
 use Girolando\Componentes\Animal\Services\Server\AnimalService;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class AnimalServiceController extends Controller
 {

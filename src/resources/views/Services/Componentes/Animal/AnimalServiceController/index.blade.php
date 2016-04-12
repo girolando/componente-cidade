@@ -59,7 +59,7 @@
                     }}
                 ],
                 ajax : {
-                    url : '/geral/componentes/animal-service',
+                    url : '/vendor-girolando/componentes/animal',
                     data : function(obj){
                         obj.name = '{!! $name !!}';
                     }
