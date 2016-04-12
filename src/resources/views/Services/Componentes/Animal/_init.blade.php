@@ -16,7 +16,7 @@
              */
             this.onSearchButtonClick = function(){
                 System.beginLoading($("body"), '{!! trans('ComponenteAnimal::Geral/Componentes/AnimalService._init.msgBuscando') !!}');
-                $.get('/vendor-girolando/componentes/animal-service', this.getAttributes(), function(response){
+                $.get('/vendor-girolando/componentes/animal', this.getAttributes(), function(response){
                     System.stopLoading();
                     self.modalInstance = Alert.bigConfirm(response, function(ok){
                         if(!ok){
