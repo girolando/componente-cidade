@@ -1,5 +1,5 @@
 {
-  "name": "andersonef/ghcomponent-animal",
+  "name": "girolando/componente-animal",
   "description": "Componentes Girolando - Animal",
   "keywords": [
     "laravel",
@@ -17,7 +17,7 @@
   "require": {
     "php": ">=5.6.0",
     "illuminate/support" : "5.1.x",
-    "andersonef/gh-base-component" : "1.0.x",
+    "girolando/base-component" : "1.0.x",
     "andersonef/api-clientlayer": "^1.2",
     "illuminate/routing": "5.1.x",
     "yajra/laravel-datatables-oracle": "~5.0",
@@ -25,12 +25,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Andersonef\\Componentes\\Animal\\": "src/module/"
+      "Girolando\\Componentes\\Animal\\": "src/module/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Andersonef\\Tests\\Componentes\\Animal\\": "tests/"
+      "Girolando\\Tests\\Componentes\\Animal\\": "tests/"
     }
   },
   "extra": {

@@ -30,7 +30,7 @@ class AnimalServiceController extends Controller
     public function index(Request $request)
     {
         if($request->has('_DataTableQuery')){
-            $response = $this->apiConnector->get('/geral/componente/animal-service', $request->all());
+            $response = $this->apiConnector->get('/vendor-girolando/server/componentes/animal', $request->all());
             if($response->status == 'success'){
                 return new JsonResponse($response->data, 200);
             }

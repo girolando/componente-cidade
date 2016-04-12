@@ -8,7 +8,7 @@
 namespace Andersonef\Componentes\Animal\Services;
 
 
-use Andersonef\BaseComponent\Services\Componentes\BaseComponentService;
+use Andersonef\BaseComponent\Services\BaseComponentService;
 use Andersonef\Componentes\Animal\Repositories\Views\AnimalConsultaRepository;
 use Illuminate\Database\DatabaseManager;
 
