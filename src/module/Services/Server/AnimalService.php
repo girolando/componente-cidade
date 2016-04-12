@@ -5,18 +5,29 @@
  * Date: 30/03/2016
  * Time: 16:36
  */
-namespace Andersonef\Componentes\Animal\Services\Server\Componentes;
+namespace Andersonef\Componentes\Animal\Services\Server;
 
 
 use Andersonef\Componentes\Animal\Extensions\DataTableQuery;
+use Andersonef\Componentes\Animal\Repositories\Views\AnimalConsultaRepository;
 use Andersonef\Repositories\Abstracts\ServiceAbstract;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\DatabaseManager;
 use Illuminate\Http\Request;
 use yajra\Datatables\Datatables;
 
 class AnimalService extends ServiceAbstract
 {
 
+    /**
+     * This constructor will receive by dependency injection a instance of AnimalConsultaRepository and DatabaseManager.
+     *
+     * @param AnimalConsultaRepository $repository
+     * @param DatabaseManager $db
+     */
+    public function __construct(AnimalConsultaRepository $repository, DatabaseManager $db)
+    {
+        parent::__construct($repository, $db);
+    }
 
     public function getAnimalDataset($dataTableQueryName = 'animalConsulta')
     {

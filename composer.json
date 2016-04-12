@@ -25,7 +25,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Andersonef\\Componentes\\Animal\\": "src/"
+      "Andersonef\\Componentes\\Animal\\": "src/module/"
     }
   },
   "autoload-dev": {
