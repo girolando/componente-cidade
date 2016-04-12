@@ -5,12 +5,10 @@
  * Date: 29/03/2016
  * Time: 14:34
  */
-namespace Andersonef\Componentes\Animal\Services;
+namespace Girolando\Componentes\Animal\Services;
 
 
-use Andersonef\BaseComponent\Services\BaseComponentService;
-use Andersonef\Componentes\Animal\Repositories\Views\AnimalConsultaRepository;
-use Illuminate\Database\DatabaseManager;
+use Girolando\BaseComponent\Services\BaseComponentService;
 
 class AnimalService extends BaseComponentService
 {

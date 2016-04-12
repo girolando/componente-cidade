@@ -5,12 +5,12 @@
  * Date: 30/03/2016
  * Time: 16:36
  */
-namespace Andersonef\Componentes\Animal\Services\Server;
+namespace Girolando\Componentes\Animal\Services\Server;
 
 
-use Andersonef\Componentes\Animal\Extensions\DataTableQuery;
-use Andersonef\Componentes\Animal\Repositories\Views\AnimalConsultaRepository;
-use Andersonef\Repositories\Abstracts\ServiceAbstract;
+use Girolando\Componentes\Animal\Extensions\DataTableQuery;
+use Girolando\Componentes\Animal\Repositories\Views\AnimalConsultaRepository;
+use Girolando\Repositories\Abstracts\ServiceAbstract;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Http\Request;
 use yajra\Datatables\Datatables;

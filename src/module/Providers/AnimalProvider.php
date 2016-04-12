@@ -1,7 +1,7 @@
 <?php
-namespace Andersonef\Componentes\Animal\Providers;
+namespace Girolando\Componentes\Animal\Providers;
 
-use Andersonef\BaseComponent\Providers\BaseComponentProvider;
+use Girolando\BaseComponent\Providers\BaseComponentProvider;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\View;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Andersonef\Componentes\Animal\Controllers;
+namespace Girolando\Componentes\Animal\Controllers;
 
 use Andersonef\ApiClientLayer\Services\ApiConnector;
 use Illuminate\Http\JsonResponse;

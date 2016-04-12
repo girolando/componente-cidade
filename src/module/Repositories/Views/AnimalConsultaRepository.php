@@ -1,5 +1,5 @@
 <?php
-namespace Andersonef\Componentes\Animal\Repositories\Views;
+namespace Girolando\Componentes\Animal\Repositories\Views;
 
 use Andersonef\Repositories\Abstracts\RepositoryAbstract;
 
