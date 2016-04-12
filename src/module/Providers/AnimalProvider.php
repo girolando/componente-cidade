@@ -1,13 +1,13 @@
 <?php
 namespace Andersonef\Componentes\Animal\Providers;
 
+use Andersonef\BaseComponent\Providers\BaseComponentProvider;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 
-class AnimalProvider extends RouteServiceProvider{
+class AnimalProvider extends BaseComponentProvider{
 
 
     public function boot(Router $router)
