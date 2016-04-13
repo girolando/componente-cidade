@@ -2,6 +2,7 @@
 namespace Girolando\Componentes\Animal\Controllers\Server;
 
 use Girolando\Componentes\Animal\Services\Server\AnimalService;
+use Girolando\Componentes\Animal\Services\Server\ComponenteAnimalService;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -13,7 +14,7 @@ class AnimalServiceController extends Controller
      * AnimalServiceController constructor.
      * @param $animalService
      */
-    public function __construct(AnimalService $animalService)
+    public function __construct(ComponenteAnimalService $animalService)
     {
         $this->animalService = $animalService;
     }

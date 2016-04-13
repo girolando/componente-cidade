@@ -15,7 +15,7 @@ use Illuminate\Database\DatabaseManager;
 use Illuminate\Http\Request;
 use yajra\Datatables\Datatables;
 
-class AnimalService extends ServiceAbstract
+class ComponenteAnimalService extends ServiceAbstract
 {
 
     /**
@@ -34,11 +34,22 @@ class AnimalService extends ServiceAbstract
         $dataTableQuery = DataTableQuery::getInstance($dataTableQueryName);
         $filters = (array) $dataTableQuery->getFilters();
         $retorno = $this->getQuery();
-        if($filters) $retorno = $this->findBy($filters);
+        if($filters){
+            $searchableFields = (new AnimalConsulta())->getFillable();
+            $nfilters = [];
+            foreach($filters as $filter => $value){
+                if(!in_array($filter, $searchableFields)) continue;
+                $nfilters[$filter] = $value;
+            }
+            if($nfilters) {
+                $retorno = $this->findBy($nfilters);
+                $retorno = $retorno->getQuery();
+            }
+        }
 
         $retorno->select(['*']);
-
         $dataset = $dataTableQuery->apply($retorno);
+
 
         $request = Request::capture();
         if($request->has('customFilters')){
@@ -54,7 +65,9 @@ class AnimalService extends ServiceAbstract
 
     public function getAnimalDatatableJson($datasetName = 'animalConsulta')
     {
-        return Datatables::of($this->getAnimalDataset($datasetName))
+        $dataset = $this->getAnimalDataset($datasetName);
+
+        return Datatables::of($dataset)
             ->addColumn('idadeAnimal', function($row){
                 $row = (new AnimalConsulta())->fill(['dataNascimentoAnimal' => $row->dataNascimentoAnimal]);
                 return $row->idadeAnimal;

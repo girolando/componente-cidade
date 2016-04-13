@@ -20,9 +20,9 @@ class AnimalProvider extends BaseComponentProvider{
 
     public function map(Router $router)
     {
-        $router->group(['prefix' => 'vendor-girolando'], function() use($router){
-            $router->resource('componentes/animal', 'Girolando\Componentes\Animal\Controllers\AnimalServiceController', ['only' => ['index']]);
-            $router->resource('server/componentes/animal', 'Girolando\Componentes\Animal\Controllers\Server\AnimalServiceController', ['only' => ['index']]);
+        $router->group(['prefix' => 'vendor-girolando', 'namespace' => 'Girolando\Componentes\Animal\Controllers'], function() use($router){
+            $router->resource('componentes/animal', 'AnimalServiceController', ['only' => ['index']]);
+            $router->resource('server/componentes/animal', 'Server\AnimalServiceController', ['only' => ['index']]);
         });
     }
 

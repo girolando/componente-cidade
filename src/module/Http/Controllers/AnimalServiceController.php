@@ -36,6 +36,15 @@ class AnimalServiceController extends Controller
             }
             dd($response);
         }
-        return view('ComponenteAnimal::Services.Componentes.Animal.AnimalServiceController.index', $request->all());
+        $all = $request->all();
+        $filters = [];
+        foreach($all as $attr => $val){
+            if(substr($attr, 0, 7) != 'filter-') continue;
+            $filters[substr($attr, 7)] = $val;
+        }
+
+        $request->merge(['_attrFilters' => $filters]);
+
+        return view('ComponenteAnimal::AnimalServiceController.index', $request->all());
     }
 }
