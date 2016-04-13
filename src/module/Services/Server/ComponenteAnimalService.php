@@ -8,6 +8,7 @@
 namespace Girolando\Componentes\Animal\Services\Server;
 
 
+use Girolando\Componentes\Animal\Entities\Views\AnimalConsulta;
 use Girolando\Componentes\Animal\Extensions\DataTableQuery;
 use Girolando\Componentes\Animal\Repositories\Views\AnimalConsultaRepository;
 use Andersonef\Repositories\Abstracts\ServiceAbstract;
