@@ -15,6 +15,6 @@ class AnimalService extends BaseComponentService
 
     public function _init($params = [])
     {
-        return view('ComponenteAnimal::Services.Componentes.Animal._init', $params);
+        return view('ComponenteAnimal::Services.Animal._init', $params);
     }
 }
