@@ -3,12 +3,18 @@
 @section('content')
     <table class="table tooltip-demo table-stripped table-hover comp-tbl-search-animal" data-page-size="10" data-filter=#filter>
         <thead>
-        <th>#</th>
+        @if(isset($multiple) && $multiple)
+            <th>#</th>
+        @endif
         <th>Animal</th>
         <th>G. Sang.</th>
         <th>Registro</th>
         <th>Botton Nr. Part.</th>
         <th>Idade</th>
+
+        @if(!(isset($multiple) && $multiple))
+            <th>Selecionar</th>
+        @endif
         </thead>
     </table>
 @endsection
@@ -18,6 +24,45 @@
 
         Componente.scope(function(){ //escopando as variáveis para não conflitarem com possíveis outros componentes do mesmo tipo abertos na tela
             var componente = Componente.AnimalFactory.get('{!! $name !!}');
+
+            var colunas = [
+                {
+                    name : 'nomeAnimal',
+                    data : function(obj){
+                        if(!obj.nomeAnimal) return ' - ';
+                        return '<label for="_companimal_{!! $name !!}_' + obj.codigoAnimal + '">' + obj.nomeAnimal + '</label>';
+                    }
+                },
+                {name : 'siglaTipoSangue', data : 'siglaTipoSangue'},
+                {name : 'mascaraRegistro', data : 'mascaraRegistro'},
+                {name : 'nroPartTransferenciaProprietario', data : 'nroPartTransferenciaProprietario'},
+                {name : 'idadeAnimalAreviada', data : function(obj){
+                    if(!obj.idadeAnimal) return 'N/D';
+                    return '<span data-toggle="tooltip" data-placement="top" data-original-title="' + obj.idadeAnimal + '">' + obj.idadeAnimalAbreviada + '</span>';
+                }}
+            ];
+
+            @if(isset($multiple) && $multiple)
+                colunas.unshift({
+                    name : 'AnimalConsulta.codigoAnimal',
+                    data : function(obj){
+                        var idfield = '_companimal_{!! $name !!}_' + obj.codigoAnimal;
+                        if(componente.dataTableInstance.DataTableQuery().isItemChecked(obj.codigoAnimal)) {
+                            return '<input id="' + idfield + '" class="checkbox checkbox-primary chkSelecionarAnimal" type="checkbox" checked="checked" value="' + obj.codigoAnimal + '">';
+                        }
+                        return '<input id="' + idfield + '" class="checkbox checkbox-primary chkSelecionarAnimal" type="checkbox" value="' + obj.codigoAnimal + '">';
+                    }
+                });
+            @else
+                colunas.push({
+                    name : 'AnimalConsulta.codigoAnimal',
+                    data : function(obj){
+                        var idfield = '_companimal_{!! $name !!}_' + obj.codigoAnimal;
+                        return '<button id="' + idfield + '" class="btn btn-sm btn-primary btnSelecionarAnimal" codigo="' + obj.codigoAnimal + '">Selecionar</button>';
+                    }
+                });
+            @endif
+
 
             componente.dataTableInstance = $(".comp-tbl-search-animal")
                     .on('xhr.dt', function(){
@@ -37,34 +82,7 @@
                                 @endif
                             }
                         },
-                        columns : [
-                            {
-                                name : 'AnimalConsulta.codigoAnimal',
-                                data : function(obj){
-                                    var idfield = '_companimal_{!! $name !!}_' + obj.codigoAnimal;
-                                    @if(isset($multiple) && $multiple)
-                                    if(componente.dataTableInstance.DataTableQuery().isItemChecked(obj.codigoAnimal)) {
-                                        return '<input id="' + idfield + '" class="checkbox checkbox-primary chkSelecionarAnimal" type="checkbox" checked="checked" value="' + obj.codigoAnimal + '">';
-                                    }
-                                    return '<input id="' + idfield + '" class="checkbox checkbox-primary chkSelecionarAnimal" type="checkbox" value="' + obj.codigoAnimal + '">';
-                                    @endif
-                                            return '<button id="' + idfield + '" class="btn btn-sm btn-primary btnSelecionarAnimal" codigo="' + obj.codigoAnimal + '">Selecionar</button>';
-                                }
-                            },
-                            {
-                                name : 'nomeAnimal',
-                                data : function(obj){
-                                    return '<label for="_companimal_{!! $name !!}_' + obj.codigoAnimal + '">' + obj.nomeAnimal + '</label>';
-                                }
-                            },
-                            {name : 'siglaTipoSangue', data : 'siglaTipoSangue'},
-                            {name : 'mascaraRegistro', data : 'mascaraRegistro'},
-                            {name : 'nroPartTransferenciaProprietario', data : 'nroPartTransferenciaProprietario'},
-                            {name : 'idadeAnimalAreviada', data : function(obj){
-                                if(!obj.idadeAnimal) return 'N/D';
-                                return '<span data-toggle="tooltip" data-placement="top" data-original-title="' + obj.idadeAnimal + '">' + obj.idadeAnimalAbreviada + '</span>';
-                            }}
-                        ],
+                        columns : colunas,
                         ajax : {
                             url : '/vendor-girolando/componentes/animal',
                             data : function(obj){
