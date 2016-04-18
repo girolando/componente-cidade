@@ -5,38 +5,38 @@
  * Date: 30/03/2016
  * Time: 16:36
  */
-namespace Girolando\Componentes\Animal\Services\Server;
+namespace Girolando\Componentes\Pessoa\Services\Server;
 
 
-use Girolando\Componentes\Animal\Entities\Views\AnimalConsulta;
-use Girolando\Componentes\Animal\Extensions\DataTableQuery;
-use Girolando\Componentes\Animal\Repositories\Views\AnimalConsultaRepository;
+use Girolando\BaseComponent\Extensions\DataTableQuery;
+use Girolando\Componentes\Pessoa\Entities\Views\VPessoa;
 use Andersonef\Repositories\Abstracts\ServiceAbstract;
+use Girolando\Componentes\Pessoa\Repositories\Views\VPessoaRepository;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Http\Request;
 use yajra\Datatables\Datatables;
 
-class ComponenteAnimalService extends ServiceAbstract
+class VPessoaService extends ServiceAbstract
 {
 
     /**
-     * This constructor will receive by dependency injection a instance of AnimalConsultaRepository and DatabaseManager.
+     * This constructor will receive by dependency injection a instance of VPessoaRepository and DatabaseManager.
      *
-     * @param AnimalConsultaRepository $repository
+     * @param VPessoaRepository $repository
      * @param DatabaseManager $db
      */
-    public function __construct(AnimalConsultaRepository $repository, DatabaseManager $db)
+    public function __construct(VPessoaRepository $repository, DatabaseManager $db)
     {
         parent::__construct($repository, $db);
     }
 
-    public function getAnimalDataset($dataTableQueryName = 'animalConsulta')
+    public function getPessoaDataset($dataTableQueryName = '_componenteConsulta')
     {
         $dataTableQuery = DataTableQuery::getInstance($dataTableQueryName);
         $filters = (array) $dataTableQuery->getFilters();
         $retorno = $this->getQuery();
         if($filters){
-            $searchableFields = (new AnimalConsulta())->getFillable();
+            $searchableFields = (new VPessoa())->getFillable();
             $nfilters = [];
             foreach($filters as $filter => $value){
                 if(!in_array($filter, $searchableFields)) continue;
@@ -64,19 +64,11 @@ class ComponenteAnimalService extends ServiceAbstract
         return $dataset;
     }
 
-    public function getAnimalDatatableJson($datasetName = 'animalConsulta')
+    public function getPessoaDatasetJson($datasetName = '_componenteConsulta')
     {
-        $dataset = $this->getAnimalDataset($datasetName);
+        $dataset = $this->getPessoaDataset($datasetName);
 
         return Datatables::of($dataset)
-            ->addColumn('idadeAnimal', function($row){
-                $row = (new AnimalConsulta())->fill(['dataNascimentoAnimal' => $row->dataNascimentoAnimal]);
-                return $row->idadeAnimal;
-            })
-            ->addColumn('idadeAnimalAbreviada', function($row){
-                $row = (new AnimalConsulta())->fill(['dataNascimentoAnimal' => $row->dataNascimentoAnimal]);
-                return $row->idadeAnimalAbreviada;
-            })
             ->make(true);
     }
 

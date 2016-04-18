@@ -5,16 +5,16 @@
  * Date: 29/03/2016
  * Time: 14:34
  */
-namespace Girolando\Componentes\Animal\Services;
+namespace Girolando\Componentes\Pessoa\Services;
 
 
 use Girolando\BaseComponent\Services\BaseComponentService;
 
-class AnimalService extends BaseComponentService
+class PessoaService extends BaseComponentService
 {
 
     public function _init($params = [])
     {
-        return view('ComponenteAnimal::Services.Animal._init', $params);
+        return view('ComponentePessoa::Services.Pessoa._init', $params);
     }
 }

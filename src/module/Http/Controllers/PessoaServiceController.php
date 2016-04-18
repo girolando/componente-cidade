@@ -1,6 +1,6 @@
 <?php
 
-namespace Girolando\Componentes\Animal\Controllers;
+namespace Girolando\Componentes\Pessoa\Controllers;
 
 use Andersonef\ApiClientLayer\Services\ApiConnector;
 use Illuminate\Http\JsonResponse;
@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 
-class AnimalServiceController extends Controller
+class PessoaServiceController extends Controller
 {
     protected $apiConnector;
 
@@ -30,7 +30,7 @@ class AnimalServiceController extends Controller
     public function index(Request $request)
     {
         if($request->has('_DataTableQuery')){
-            $response = $this->apiConnector->get('/vendor-girolando/server/componentes/animal', $request->all());
+            $response = $this->apiConnector->get('/vendor-girolando/server/componentes/pessoa', $request->all());
             if($response->status == 'success'){
                 return new JsonResponse($response->data, 200);
             }
@@ -45,6 +45,6 @@ class AnimalServiceController extends Controller
 
         $request->merge(['_attrFilters' => $filters]);
 
-        return view('ComponenteAnimal::AnimalServiceController.index', $request->all());
+        return view('ComponentePessoa::PessoaServiceController.index', $request->all());
     }
 }
